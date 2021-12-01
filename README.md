@@ -19,11 +19,13 @@
 ### Owner
 - *OWNER* can create a new *EMPLOYEE*
 - Program calculates the weekly pay for an employee;
-    <if (totalHrs > 40) {
-			salary = (totalHrs - 40) * 1.5 * wage + (40 * wage);
-		} else {
-			salary = totalHrs * wage;
-		}>
+	```ts
+    	if (totalHrs > 40) {
+		salary = (totalHrs - 40) * 1.5 * wage + (40 * wage);
+	} else {
+		salary = totalHrs * wage;
+	}
+	```
 
 
 
