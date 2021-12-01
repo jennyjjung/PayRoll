@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body> 
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+
+	
+	<div style="color:red;" th:if="${param.logout}">
+		You have been logged out<br>
+	</div>
+	
+	<div sec:authorize="isAnonymous()">
+		<h2>Sign In To Payroll System</h2>
+		
+		<div style="color:red;" th:if="${param.error}">
+			Invalid username or password
+		</div>
+		
+		<form th:action="@{/login}" method="post">
+			<div class="loginForm">
+				<label for="username">Username </label>
+				<input type="text" name="username" placeholder="Username" required autofocus>
+				<label for="password">Password</label> 
+				<input type="password" name="password" placeholder="Password"  required><br>
+			</div>
+			<div class="btn">
+				<input type="submit" value="Login">
+			</div>
+		</form>
+	</div>
+	
+	<div sec:authorize="isAuthenticated()">
+		You have been logged in<br>
+		<form method="post" th:action="@{/logout}">
+			<div class="btn">
+				<input type="submit" value="logout">
+			</div>
+	    </form>
+    </div>
+
+</body>
+</html>

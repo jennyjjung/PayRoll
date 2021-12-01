@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+	
+	<h2>My Weekly Pay Stub</h2>
+	
+	
+	<div class="form emp">
+		<div class="itemForm">
+			<span>Employee Id</span>	
+			<span th:text="${employee.empId}"></span>
+		</div>
+		<div class="itemForm">
+			<span>Name</span>	
+			<span th:text="${employee.name}"></span>
+		</div>
+		<div class="itemForm">
+			<span>Hourly Wage</span>	
+			<span th:text="'$' + ${employee.strWage}"></span>
+		</div>
+		<div class="itemForm">
+			<span>Total Hours</span>	
+			<span th:text="${employee.totalHrs}"></span>
+		</div>
+		<div class="itemForm">
+			<span>Weekly Salary</span>	
+			<span th:text="'$' + ${employee.strSalary}"></span>
+		</div>
+	</div>
+	
+	<h3>Weekly Shift</h3>
+	
+	<table class="empTable">
+		<tr>
+			<th>Mon</th>
+			<th>Tue</th>
+			<th>Wed</th>
+			<th>Thu</th>
+			<th>Fri</th>
+			<th>Sat</th>
+			<th>Sun</th>
+		</tr>
+		<tr>
+			<td th:text="${employee.monHrs}"></td>
+			<td th:text="${employee.tueHrs}"></td>
+			<td th:text="${employee.wedHrs}"></td>
+			<td th:text="${employee.thuHrs}"></td>
+			<td th:text="${employee.friHrs}"></td>
+			<td th:text="${employee.satHrs}"></td>
+			<td th:text="${employee.sunHrs}"></td>
+		</tr>
+	</table>
+	
+	<div class="link">
+		<a th:href="@{/}">Main Page</a>
+	</div>
+	
+</body>
+</html>

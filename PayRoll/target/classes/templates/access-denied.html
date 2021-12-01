@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+	
+	<div style="color:red;">
+		Access denied. This is a restricted page.
+	</div>
+	<br>
+	<a th:href=@{/}>Main Page</a><br>
+</body>
+</html>

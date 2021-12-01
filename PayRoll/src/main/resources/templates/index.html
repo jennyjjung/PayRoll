@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+	
+	<ul sec:authorize="isAnonymous()" class="nav">
+		<li><a th:href=@{/addEmployee}>Add New Employee</a></li>
+		<li><a th:href=@{/ownerPage}>View Employee Payroll</a></li>
+		<li><a th:href=@{/employeePage}>View My Pay Stub</a></li>
+	</ul>
+
+
+	<div sec:authorize="isAuthenticated()"> <!-- This tag only appears if logged in -->
+	
+		<!-- User's name -->
+		Name: <span sec:authentication="name"></span><br><br>
+		<!-- User's roles -->
+		Roles: <span sec:authentication="principal.authorities"></span>
+	
+		<!-- Button for link -->
+		<div sec:authorize="hasRole('OWNER')" class="btn">
+			<div class="link">
+				<a th:href=@{/addEmployee}>Add New Employee</a>
+			</div>
+			<div class="link">
+				<a th:href=@{/ownerPage}>View Weekly Payroll</a>
+			</div>
+	    </div>
+	    
+	    <div sec:authorize="hasRole('EMPLOYEE')" class="btn">
+			<div class="link">
+				<a th:href=@{/employeePage}>View My Pay Stub</a>
+			</div>
+	    </div>
+	</div>
+
+
+</body>
+</html>

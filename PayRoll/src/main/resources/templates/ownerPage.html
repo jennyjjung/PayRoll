@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+
+	<h2>Weekly Payroll</h2>
+	
+	<div class="tableComment">* Employee(s) who worked more than 40 hours are highlighted.</div>
+	<table>
+		<tr>
+			<th>Emp Id</th>
+			<th>Name</th>
+			<th>Mon</th>
+			<th>Tue</th>
+			<th>Wed</th>
+			<th>Thu</th>
+			<th>Fri</th>
+			<th>Sat</th>
+			<th>Sun</th>
+			<th>Total Hours</th>
+			<th>Hourly Wage</th>
+			<th>Weekly Salary</th>
+			<th colspan="2">Operation</th>
+		</tr>	
+		<tr th:each="e : ${employees}">
+			<td th:text="${e.empId}"></td>
+			<td th:text="${e.name}" style="color:red;" th:if="${e.totalHrs} > 40"></td>
+			<td th:text="${e.name}" th:if="${e.totalHrs} <= 40"></td>
+			<td th:text="${e.monHrs}"></td>
+			<td th:text="${e.tueHrs}"></td>
+			<td th:text="${e.wedHrs}"></td>
+			<td th:text="${e.thuHrs}"></td>
+			<td th:text="${e.friHrs}"></td>
+			<td th:text="${e.satHrs}"></td>
+			<td th:text="${e.sunHrs}"></td>
+			<td th:text="${e.totalHrs}" style="color:red;" th:if="${e.totalHrs} > 40"></td>
+			<td th:text="${e.totalHrs}" th:if="${e.totalHrs} <= 40"></td>
+			<td th:text="'$' + ${e.strWage}" class="left"></td>
+			<td th:text="'$' + ${e.strSalary}" class="left"></td>
+			<td><a th:href="@{/edit/{id}(id=${e.id})}">edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${e.id})}">delete</a></td>
+		</tr>
+		<tr class="total">
+			<th colspan="2">Total Hours</th>
+			<td th:text="${sumMon}"></td>
+			<td th:text="${sumTue}"></td>
+			<td th:text="${sumWed}"></td>
+			<td th:text="${sumThu}" ></td>
+			<td th:text="${sumFri}" ></td>
+			<td th:text="${sumSat}" ></td>
+			<td th:text="${sumSun}" ></td>
+			<td></td><td></td><td></td><td></td><td></td>
+		</tr>
+		<tr class="total">
+			<th colspan="2">Average</th>
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+			<td th:text="${avgHrs}"></td><td></td> 
+			<td th:text="'$' + ${avgSalary}" class="left"></td><td></td><td></td>
+		</tr>
+	</table>
+
+	<div class="link">
+		<a th:href=@{/addEmployee}>Add New Employee</a>
+	</div>
+	<div class="link">
+		<a th:href="@{/}">Main Page</a>
+	</div>
+
+</body>
+</html>

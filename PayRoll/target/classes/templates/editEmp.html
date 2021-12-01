@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css"
+	th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+	<div class="title">
+		<h1>Pet Store Payroll System</h1>
+		<a th:href=@{/login} class="loginLink">Log In / Out</a>
+	</div>
+	<hr>
+	
+	<h2>Edit Employee</h2>
+	
+	<form th:action="@{/editEmp}" method="post" th:object="${employee}">
+		<div class="form">
+			<input type="hidden" th:field="*{id}">
+			<div class="itemForm">
+			<label for="empId">Employee ID: </label>
+			<span th:text="*{empId}"></span></div>
+			<div class="itemForm">
+			<label for="name">Employee Name: </label>
+			<span th:text="*{name}"></span></div>
+			<div class="itemForm">
+			<label for="wage">Hourly Wage($): </label>
+			<input type="number" th:field="*{wage}" step="0.05"></div>
+		</div>
+		
+		<h3>Daily Hours</h3>
+		
+		<div class="form">
+			<div class="itemForm">
+			<label for="monHrs">Monday(hrs): </label>
+			<input type="number" th:field="*{monHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="tueHrs">Tuesday(hrs): </label>
+			<input type="number" th:field="*{tueHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="wedHrs">Wednesday(hrs): </label>
+			<input type="number" th:field="*{wedHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="thuJrs">Thursday(hrs): </label>
+			<input type="number" th:field="*{thuHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="friHrs">Friday(hrs): </label>
+			<input type="number" th:field="*{friHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="satHrs">Saturday(hrs): </label>
+			<input type="number" th:field="*{satHrs}" step="0.5"></div>
+			<div class="itemForm">
+			<label for="sunHrs">Sunday(hrs): </label>
+			<input type="number" th:field="*{sunHrs}" step="0.5"></div><br>
+		</div>
+		
+		<input type="submit" value="Update">
+
+	</form>
+
+
+</body>
+</html>

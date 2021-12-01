@@ -1,0 +1,184 @@
+@charset "ISO-8859-1";
+
+html,
+body {
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+hr {
+	border-top: 4px solid;
+	width: 100px;
+	margin-bottom: 30px;
+}
+
+h3 {
+	text-align: center;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	padding: 10px;
+	width: 50%;
+}
+
+li:hover {background-color: #e7e7e7;}
+
+.nav {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+form {
+	line-height: 1.8;
+	width: 400px;
+	margin: 20px auto 0px;
+	padding: 20px;
+	text-align: left;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.emp {
+	width: 400px;
+	margin: auto;
+}
+
+.empTable {
+	width: 80%;
+}
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	width: 100%;
+}
+
+.itemForm {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 10px 30px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	width: 100%;
+	cursor: pointer;
+	height: 50px;
+}
+
+input[type=submit]:hover {
+	background-color: #407822;
+}
+
+.loginForm input[type=text],
+.loginForm input[type=password] {
+	height: 50px;
+	font-size: 120%;
+	padding: 0 10px;
+}
+
+.btn {
+	display: flex;
+	margin: auto;
+	justify-content: center; 
+	line-height: 1.3em;
+} 
+
+.link,
+.loginLink {
+	padding: 5px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 20px;
+	cursor: pointer;
+	font-size: 16px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.loginLink {
+	margin-left: 20px;
+}
+
+.link:hover,
+.loginLink:hover {
+	background-color: #e7e7e7;
+}
+
+.title a {
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+.tableComment {
+	color: grey;
+	text-align: right;
+	margin-bottom: -10px;
+}
+
+table {
+	width: 100%;
+	margin: 30px auto 0px auto;
+	padding: 50px;
+	border-collapse: collapse;
+	
+}
+
+table td,
+table th {
+	text-align: center;
+	width: 100px;
+	padding: 10px;
+	border-bottom: 1px solid black;
+}
+
+th {
+	background-color: #04AA6D;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+tr:nth-child(odd) {
+	background-color: #FEF9EF;
+}
+
+.total {
+	font-size: 120%;
+	font-weight: bold;
+	height: 10px;
+}
+
+.left {
+	text-align: right;
+}
